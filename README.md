@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Goal:
+    to create a platform where users can shop for items and place orders.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Stack holders :
+    Design team, Front end engineering team, Backend team, deployment team .
 
-## Available Scripts
+# Scope :
+    a seamless platform where users will feel safe to use, and no imposition of registeration to browse products and add to cart, users will have to register an acc to place orders.
 
-In the project directory, you can run:
+    To have an ecommerce website where all sort of users can browse through the site and it products collection without imposition to firsts register an account or necessarily having an account registered with the brand, also, to automatically sync all data stored locally during the unregistered phase of a user to a remote collection which would be created when user finally registers an account. A user could even be registered, but probably signed out while browsing the site, but once signed in would be asked permission if they would like to sync the local datas with the remote ones.
 
-### `npm start`
+# Timeline : 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    <!-- complete UI & Wireframes Design of pages.
+    Algorithm design for functionalities. -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Folder Structure.
 
-### `npm test`
+2. NavBar wireframes designs 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3.  Home page wireframes Design,
+    Home page functionalities integrated
+    Home page and NavBar complete design.
 
-### `npm run build`
+4.  1. Products catalog page wireframes Design
+    2. Page split into necessary component
+        1. Products rendering 
+        2. Filter functionalities
+        3. Search functionalites
+        4. Add to cart functionalities
+        5. Cart Item count functionality 
+        6. View single products functionality
+    3. Complete products page UI
+      
+5.  1. Side Cart wireframes designs
+    2. Side Cart Functionality 
+        1. Products rendering
+        2. Products qty increase & decrease functionality
+        3. Products remove from cart functionality
+        4. Products view func(Link to single prd pg)
+        5. Products total and subtotal estimate functionality
+        6. View Cart(main) btn Functionality
+        7. Proceed to checkout btn functionality.
+    3. Complete Side Cart UI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6.  1. Cart(main) wireframes designs.
+    2. Cart Functionality
+        1. Products rendering
+        2. Products qty increase & decrease
+        3. Products remove from cart functionality
+        4. Products view func(Link to single prd pg)
+        5. Products total and subtotal estimate
+        6. Place order btn functionality 
+      [ For unregistered user, redirect to registration page to register.]
+    3. Complete Cart UI
+      
+7.  1. Checkout page wireframes design
+    2. Checkout Functionalities:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
