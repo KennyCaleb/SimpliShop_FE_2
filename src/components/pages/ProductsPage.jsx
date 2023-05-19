@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function ProductsPage() {
 
-    const store = useSelector(store=>store)
+    const store = useSelector(store => store)
     const dispatch = useDispatch()
-    
+
     const filters = store.filters
     const [productData, setProductData] = useState([])
     const [auxProductData, setAuxProductData] = useState([])
@@ -21,10 +21,10 @@ function ProductsPage() {
         const data = response.data.getProducts
         setProductData(data)
         setAuxProductData(data)
-        
+
         let cats = []
-        data.map((product)=>{
-            if (!cats.includes(product.category)){
+        data.map((product) => {
+            if (!cats.includes(product.category)) {
                 cats = [...cats, product.category.toLowerCase()]
             }
         })
@@ -35,31 +35,31 @@ function ProductsPage() {
     }, [])
 
 
-    
-    function filterProduct(){
 
-        const {displayOrder ,minPrice, maxPrice, freeShipping, ratings} = filters
+    function filterProduct() {
+
+        const { displayOrder, minPrice, maxPrice, freeShipping, ratings } = filters
 
         const filteredProducts = productData
-            .filter(product=>{
-                if(filters.searchQuery===""){
+            .filter(product => {
+                if (filters.searchQuery === "") {
                     return product
                 }
-                else{
+                else {
                     console.log(filters.searchQuery.toLowerCase())
                     return product.name.toLowerCase().includes(filters.searchQuery.toLowerCase())
                 }
             })
-            .filter((product)=>{
-                if(filters.category==="all"){
+            .filter((product) => {
+                if (filters.category === "all") {
                     return product
                 }
-                else{
-                    return product.category.toLowerCase()===filters.category.toLowerCase()
+                else {
+                    return product.category.toLowerCase() === filters.category.toLowerCase()
                 }
             })
             .filter((product) => {
-                if(minPrice==="" && maxPrice===""){
+                if (minPrice === "" && maxPrice === "") {
                     return product
                 }
                 else if (filters.minPrice === "") {
@@ -72,37 +72,37 @@ function ProductsPage() {
                     product.price <= filters.maxPrice
                 );
             })
-            .filter((product)=>{
-                if(freeShipping){
+            .filter((product) => {
+                if (freeShipping) {
                     return product.shippingFee === 0
                 }
-                else{
+                else {
                     return product
                 }
             })
             .sort((a, b) => {
-            if (displayOrder==="ascending") {
-                if (Number(a.price) < Number(b.price)) {
-                    return -1;
+                if (displayOrder === "ascending") {
+                    if (Number(a.price) < Number(b.price)) {
+                        return -1;
+                    }
+                } else if (displayOrder === "descending") {
+                    if (Number(a.price) > Number(b.price)) {
+                        return -1;
+                    }
                 }
-            } else if (displayOrder==="descending") {
-                if (Number(a.price) > Number(b.price)) {
-                    return -1;
-                }
-            }
-            //else arrange the product as they come(this is by default).
-        })
-         .filter((product) => product.ratings >= ratings)
+                //else arrange the product as they come(this is by default).
+            })
+            .filter((product) => product.ratings >= ratings)
 
         setAuxProductData(filteredProducts)
     }
-    useEffect(()=>{
+    useEffect(() => {
         filterProduct()
     }, [filters])
 
-    function handleCategory(e){
-        if(e.target.tagName === "LI"){
-            dispatch({type:"UPDATE_FILTERS", payload:{category:e.target.dataset.cat}})
+    function handleCategory(e) {
+        if (e.target.tagName === "LI") {
+            dispatch({ type: "UPDATE_FILTERS", payload: { category: e.target.dataset.cat } })
         }
     }
 
@@ -113,26 +113,26 @@ function ProductsPage() {
             <Filter />
 
             <div className='products_section'>
-                    <div className='catalogue_header'>
-                        <h1>Shop</h1>
-                    <p className="drop_down_category" style={{ minWidth: "150px"}}>
+                <div className='catalogue_header'>
+                    <h1>Shop</h1>
+                    <div className="drop_down_category" style={{ minWidth: "150px" }}>
                         <AiFillCaretDown style={{ marginBottom: "-2px" }} /> {filters.category.slice(0, 1).toUpperCase() + filters.category.slice(1)}
                         <ul onClick={handleCategory}>
                             <li data-cat="all" style={{ paddingTop: "1em" }}>All</li>
                             {
-                                categories.map((cat, index)=>{
-                                    return(
+                                categories.map((cat, index) => {
+                                    return (
                                         <li data-cat={cat} key={index}>{cat.slice(0, 1).toUpperCase() + cat.slice(1).toLowerCase()}</li>
                                     )
                                 })
                             }
                         </ul>
-                    </p>
                     </div>
+                </div>
 
                 <div className='products_catalogue'>
 
-                    {auxProductData.length===0 && <h1 style={{textAlign:"center"}}>No Match Found</h1>}
+                    {auxProductData.length === 0 && <h1 style={{ textAlign: "center" }}>No Match Found</h1>}
 
                     {
                         auxProductData.map((product, index) => {

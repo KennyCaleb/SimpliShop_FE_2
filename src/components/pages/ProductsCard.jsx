@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
+import { Link } from 'react-router-dom'
 
 function ProductsCard({product}) {
 
@@ -9,8 +10,7 @@ function ProductsCard({product}) {
 
     const [addToCartTxt, setAddToCartTxt] = useState("Add to cart")
     const { _id, name, price, category, descr, imageUrl,shippingFee, ratings } = product
-    const getUser = JSON.parse(localStorage.getItem("simplishopuser"))
-    const userId = getUser._id
+    
     const userType = store.userType
 
     function isItemIncart(){
@@ -52,11 +52,12 @@ function ProductsCard({product}) {
             cart.push({ ...addProduct, qty: 1})
             dispatch({type:"UPDATE_CART", payload:cart})
           }
-          console.log(JSON.parse(localStorage.getItem("simplishopcart")))
       }
 
 
       else if(userType.toLowerCase()==="registered"){
+          const getUser = JSON.parse(localStorage.getItem("simplishopuser"))
+          const userId = getUser._id
           const response = await axios.get(`http://localhost:7000/api/cart/${userId}`)
           let getUserCart = response.data.getUserCart
           
@@ -72,14 +73,12 @@ function ProductsCard({product}) {
             setAddToCartTxt("Item Added")
           }
       }
-
-      console.log(store.cart)
     }
     
     return (
         <div className="single_product">
             <div className="over_lay">
-                <p className="view">View</p>
+                <Link to={`/products/${product._id}`} className="view">View</Link>
                 <button className="to_cart" onClick={handleAddTocart}>{addToCartTxt}</button>
             </div>
 

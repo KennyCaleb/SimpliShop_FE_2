@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import axios from "axios"
 
 import { CgClose } from "react-icons/cg"
@@ -9,15 +9,6 @@ function CartSideBar({ cartProduct }) {
     const store = useSelector(store => store)
     const dispatch = useDispatch()
     const { userType, cart } = store  //destructuring
-    const[userId, setUserId] = useState("")
-
-    function getUser(){
-        const user = JSON.parse(localStorage.getItem("simplishopuser"))
-        setUserId(user._id)
-    }
-    useEffect(()=>{
-        getUser()
-    }, [])
 
 
     async function handleQty(e) {
@@ -38,7 +29,7 @@ function CartSideBar({ cartProduct }) {
         // send to destination store based on userTYpe
         const index = cart.findIndex(prod => String(prod.productId) === String(cartProduct.productId))
         if(userType==="registered"){
-            const res = await axios.put(`http://localhost:7000/api/cart/${cartProduct._id}`, updatedProduct)
+            await axios.put(`http://localhost:7000/api/cart/${cartProduct._id}`, updatedProduct)
 
             let d = store.cart
             d[index] = updatedProduct
@@ -60,18 +51,23 @@ function CartSideBar({ cartProduct }) {
     }
 
     async function removeItemFromCart(){
-        const productCartId = cartProduct._id
+        let updatedCart
 
         if(userType==="registered"){
-            const res = await axios.delete(`http://localhost:7000/api/cart/${productCartId}`)
+            const productCartId = cartProduct._id
+            await axios.delete(`http://localhost:7000/api/cart/${productCartId}`)
 
             let d = store.cart
-            d = d.filter(prod=> prod._id!==productCartId)
-            dispatch({ type: "UPDATE_CART", payload: d })
+            updatedCart = d.filter(prod=> prod._id!==productCartId)
+            dispatch({ type: "UPDATE_CART", payload: updatedCart })
         }
         else if(userType==="unregistered"){
-
+            const productId = cartProduct.productId
+            const getLocalCart = JSON.parse(localStorage.getItem("simplishopcart"))
+            updatedCart = getLocalCart.filter(prod=> prod.productId!==productId)
+            localStorage.setItem("simplishopcart", JSON.stringify(updatedCart))
         }
+        dispatch({ type: "UPDATE_CART", payload: updatedCart })
         
     }
 
@@ -83,7 +79,7 @@ function CartSideBar({ cartProduct }) {
                 </div>
 
                 <div className="ssbci_desc">
-                    <p style={{ fontSize: "1rem", fontWeight: "500", marginBottom: ".4em", }}>
+                    <p style={{ fontSize: "1rem", fontWeight: "500", marginBottom: ".4em"}}>
                         {cartProduct.name}
                     </p>
                     <p>£{cartProduct.price}</p>

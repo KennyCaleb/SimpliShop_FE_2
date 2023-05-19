@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    padding: 1em;
+    margin: 5em auto 0;
+    width: 100%;
+    max-width: 700px;
+}
+
+.box .child_1{
+    height: 500px;
+    margin-bottom: 1em;
+}
+.box .child_2{
+    height:500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5em;
+}
+
+@media (max-width:992px) {
+    .child_1 {
+        width: 100%;
+    }
+
+    .child_2 {
+        width: 100%;
+    }
+}
+
+@media (min-width:992px){
+    .box{
+        display: flex;
+        justify-content: space-between;
+        gap:1em;
+    }
+    .child_1{
+        width: 70%;
+        height: 100%;
+    }
+    .child_2{
+        width: 30%;
+    }
+}
+
+.child_1>div, .child_2>div{
+    background-color: #eee;
+}
+.child_1a{
+    height: 200px;
+    margin-bottom: 1em;
+}
+.child_1b{
+    height: calc(100% - 200px - 1em);
+}
+
+.child_2>div{
+    height: 33%;
+    width: 100%;
+}
+
+/* box_2 */
+.box_2{
+    width: 100%;
+    max-width: 700px;
+    border: 2px solid magenta;
+    padding: 1em;
+    margin: 2em auto 0;
+}
+@media (min-width:992px) {
+    .box_2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+    }
+}
+
+
+.filters{
+    width: 100%;
+    height: 500px;
+    border: 2px solid magenta;
+    padding: 2em 0 0;
+}
+.products_section{
+    width: 100%;
+    height: 500px;
+    border: 2px solid rebeccapurple;
+}
+@media (min-width:992px) {
+    .filters{
+        width: 30%;
+    }
+    .products_section{
+        width: 70%;
+    }
+}
+
+.filters>p{
+    height: 60px;
+    border: 2px solid red;
+    margin-bottom: 1.5em;
+}
+@media (max-width:992px){
+    .filters>p{
+        max-width: 400px;
+    }
+}
+@media (min-width:992px) {
+    .filters>p {
+        width: 100%;
+    }
+}
+
+.products_section .header{
+    border: 2px solid magenta;
+    height: 60px;
+}
+.products_section .catalogue{
+    border: 2px solid red;
+    height: calc(100% - 60px - 1em);
+    margin-top: 1em;
+}
+
+
+.catalogue{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.catalogue>p{
+    width:25%;
+    height: 100px;
+    border: 2px solid red;
+}

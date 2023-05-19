@@ -133,7 +133,6 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
     border: 2px solid red;
 }
 .user_wrapper>p{
@@ -155,7 +154,7 @@ nav{
     font-size: .9rem;
     font-weight: 500;
     max-height: 0px;
-    min-width: 120px;
+    min-width: 150px;
     background-color: var(--white);
     overflow: hidden;
     list-style: none;
@@ -601,12 +600,12 @@ nav{
     padding: .5em;
     font-weight: 500;
     position: relative;
-    /* height: 335px; */
+    /* max-height: 335px; */
 }
 
 .single_product .flex_image {
     width: 100%;
-    /* height: 50%; */
+    max-height: 60%;
     margin-bottom: .5em;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -617,7 +616,7 @@ nav{
 }
 
 .nrp {
-    height: calc(50% - .5em);
+    height: calc(40% - .5em);
     background-color: var(--light-red);
     color: #222;
 
@@ -645,6 +644,268 @@ nav{
 
 /* --------------------------------PRODUCTS CATALOGUE ENDS-------------------------------- */
 
+
+/* --------------------------------SIGNUP  STARTS-------------------------------- */
+.form{
+   position: fixed;
+   top: 0px;
+   z-index: 5;
+   background-color: rgba(0, 0, 0, 0.5);
+   width: 100%;
+   height:  calc(100vh - 60px);
+   padding: .5em .5em;
+   border: 2px solid magenta;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.form_container{
+    width: 100%;
+    min-height: 300px;
+    margin: auto;
+    background: #fff;
+
+    position: relative;
+}
+@media (min-width:992px){
+    .form_container{
+        max-width: 700px;
+    }
+}
+.reg_log_header{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #333;
+    padding: 1em .5em;
+}
+.reg_log_header>span{
+    cursor: pointer;
+}
+.reg_log_header>span:hover{
+    color: var(--red);
+}
+
+.form_container .sign_form{
+    padding: 1em .5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+}
+.sign_form input{
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    padding: 0 1em;
+}
+.sign_form button{
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+}
+.form_container .btn_close{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--red);
+    cursor: pointer;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* --------------------------------SIGNUP ENDS-------------------------------- */
+
+
+/* --------------------------------SINGLE PRODUCT PAGE STARTS-------------------------------- */
+.single_product_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3em;
+
+    margin-bottom: 2em;
+}
+@media (max-width:992px){
+    .single_product_container{
+        flex-direction: column;
+    }
+}
+
+.product_image_container{
+    /* border: 2px solid yellow; */
+    width: 40%;
+    min-height: 100px;
+}
+.product_descr-container{
+    /* border: 2px solid red; */
+    width: 40%;
+    min-height: 100px;
+    padding: .5em ;
+}
+@media (max-width:992px) {
+    .product_image_container, .product_descr-container{
+        width: 100%;
+    }
+    .product_descr-container{
+        max-width: 500px;
+        margin: auto;
+    }
+}
+@media (min-width:992px) {
+
+    .product_descr-container{
+        max-width: 400px;
+    }
+}
+.product_image_container .full_image_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product_image_container .small_image_wrapper{
+    /* border: 2px solid green; */
+}
+@media (min-width: 992px){
+    .product_image_container {
+        display: flex;
+        gap: .2em;
+    }
+    .full_image_wrapper{
+        width: calc(100% - 60px);
+    }
+    .small_image_wrapper{
+        width: 60px;
+    }
+}
+.full_image_wrapper img{
+    width: 100%;
+    max-width: 500px;
+}
+@media (max-width:992px){
+    .full_image_wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2em;
+    }
+
+    .full_image_wrapper img{
+        max-width: 300px;
+    }
+}
+
+.small_image_wrapper img{
+    width: 100%;
+    margin-bottom: .7em;
+}
+@media (max-width: 992px) {
+    .small_image_wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1em;
+        padding: 0 1em;
+    }
+    .small_image_wrapper img {
+        width: 23%;
+        max-width: 60px;
+    }
+}
+
+.product_descr-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+}
+.product_descr-container .product_name{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+
+.product_descr-container .product_descr{
+    font-size: .8rem;
+    text-align: justify;
+    letter-spacing: .03rem;
+    word-spacing: .2em;
+    line-height: 1.5em;
+    margin-top: 2em;
+}
+
+.product_descr-container .spbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .2em;
+}
+.spbtn button{
+    font-size: .8rem;
+    font-weight: 700;
+    width: 50%;
+    height: 40px;
+    max-width: 200px;
+    cursor: pointer;
+    border: none;
+}
+
+.product_descr-container .spqty_wrapper{
+    border: 2px solid  rgba(0, 0, 0, 0.04);
+    text-align: center;
+    padding: .2em;
+    margin-bottom: .3em;
+}
+.spqty_wrapper span{
+    display: inline-block;
+}
+.spqty_wrapper .qty_modifier{
+    width: 25px;
+    height: 25px;
+    font-size: 1.1rem;
+    font-weight: 500 ;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.spqty_wrapper .spqty{
+    font-size: 1.3rem;
+    margin: 0 .8em;
+}
+
+/* product_meta */
+.product_meta{
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 2em;
+    margin-bottom: 1em;
+}
+
+.related_product{
+    margin: 2em 0;
+
+}
+.related_product .related_prod_header{
+    margin: 1em 1em;
+    font-weight: 400;
+}
+
+.related_product_grid{
+    border: none !important;
+    width: 100%;
+    max-width: 1200px;margin: auto;
+    padding: 1em .5em;
+}
+
+/* --------------------------------SINGLE PRODUCT PAGE ENDS-------------------------------- */
 
 /* --------------------------------FOOTER STARTS-------------------------------- */
 footer {

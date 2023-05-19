@@ -12,6 +12,10 @@ import ShopReducer from "./components/reducers/ShopReducer";
 import {Provider} from "react-redux"
 import Footer from './components/inc/Footer';
 import axios from 'axios';
+import SingleProductPage from './components/pages/SingleProductPage';
+import Cart from './components/pages/Cart';
+import SignForms from './components/pages/SignForms';
+
 
 function App() {
 
@@ -32,6 +36,10 @@ function App() {
       cart = JSON.parse(localStorage.getItem("simplishopcart")) || []
     }
     store.dispatch({ type: "UPDATE_CART", payload: cart });
+
+    //get all products to store
+    const res = await axios("http://localhost:7000/api/products")
+    store.dispatch({ type: "RENDER_STORE_PRODUCTS", payload: res.data.getProducts });
   }
 
   useEffect(()=>{
@@ -43,11 +51,14 @@ function App() {
       <Provider store={store}>
         <div className="simplishop_app">
           <Nav />
+          <SignForms/>
           <Routes>
-            <Route path="/" element={<LandingPage />} /> 
+            <Route path="/" element={<LandingPage />} />
             <Route path="products" element={<ProductsPage />} />
+            <Route path="products/:id" element={<SingleProductPage />} />
+            <Route path="cart" element={<Cart/>} />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </Provider>
     </BrowserRouter>

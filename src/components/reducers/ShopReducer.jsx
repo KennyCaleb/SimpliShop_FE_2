@@ -1,5 +1,7 @@
 const intialData = {
-    userType: "",
+    products:[],
+    userType: "yu",
+    regModal:false,
     cart:[],
     filters: {
         searchQuery: "",
@@ -14,7 +16,23 @@ const intialData = {
 
 function ShopReducer(state = intialData, action) {
 
+    function handleCart(){
+
+    }
+
     switch (action.type) {
+        case "RENDER_STORE_PRODUCTS":
+            return {
+                ...state,
+                products: action.payload
+            }
+
+        case "UPDATE_REG_MODAL_STATE":
+            return {
+                ...state,
+                regModal: action.payload
+            }
+
 
         case "UPDATE_USER_TYPE":
             return {
