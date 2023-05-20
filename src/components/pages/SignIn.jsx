@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { useDispatch } from 'react-redux'
 
 function SignIn() {
+
+        const dispatch = useDispatch()
+
         const [userForm, setUserForm] = useState({
             email: "",
             password: ""
@@ -26,6 +30,20 @@ function SignIn() {
 
         const response = await axios.post("http://localhost:7000/api/users/login", { ...userForm, password: String(userForm.password) })
         alert(response.data.msg)
+
+        // save user to local storage
+        localStorage.setItem("simplishopuser", JSON.stringify(response.data.user))
+
+        // update store cart
+        const res = await axios.get(`http://localhost:7000/api/cart/${response.data.user._id}`)
+        const getUserCart = res.data.getUserCart
+        dispatch({ type: "UPDATE_CART" , payload:getUserCart})
+
+        // change user type
+        dispatch({ type: "UPDATE_USER_TYPE", payload:"registered" })
+        
+        // clear localStorage
+        localStorage.removeItem("simplishopcart")
     }
 
 
