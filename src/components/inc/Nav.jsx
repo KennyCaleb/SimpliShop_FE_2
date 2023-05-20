@@ -66,11 +66,11 @@ function Nav() {
         </p>
 
         <div className="user_wrapper">
-          <HiUser style={{ fontSize: "1.2rem" }} />
+          <HiUser style={{ fontSize: "1rem" }} />
           <div className='drop_down_parent'>
             Account
             <AiFillCaretDown
-              style={{ fontSize: "1.2rem", marginBottom: "-5px" }}
+              style={{ fontSize: "1rem", marginBottom: "-5px" }}
             />
             <ul className='drop_down_user'>
               {userType === "registered" && <li>Welcome back {localStorage.getItem("simplishopuser") && JSON.parse(localStorage.getItem("simplishopuser")).fullName.split(" ")[0]}</li>}

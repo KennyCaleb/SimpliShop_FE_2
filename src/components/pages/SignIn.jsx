@@ -41,7 +41,7 @@ function SignIn() {
 
         // change user type
         dispatch({ type: "UPDATE_USER_TYPE", payload:"registered" })
-        
+
         // clear localStorage
         localStorage.removeItem("simplishopcart")
     }

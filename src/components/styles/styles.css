@@ -135,7 +135,7 @@ nav{
     align-items: center;
     border: 2px solid red;
 }
-.user_wrapper>p{
+.user_wrapper>.drop_down_parent{
     display: flex;
     align-items: flex-end;
     gap: .2em;
@@ -144,6 +144,11 @@ nav{
     cursor: pointer;
 
     position: relative;
+}
+@media (max-width:576px){
+    .user_wrapper>.drop_down_parent{
+        font-size: 0.5rem;
+    }
 }
 
 .user_wrapper .drop_down_user{
