@@ -369,32 +369,93 @@ nav{
 
 
 /* --------------------------------LANDING PAGE STARTS-------------------------------- */
-.landing_page{
-    border: 2px solid red;
-    background-color: #eee;
-}
-.landing_page .hero{
-    height: calc(100vh - 60px);
+/* banner */
+.hero_section {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    padding: 0 0 2em;
+    background-color: rgb(238, 238, 238);
+
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
 }
 
-.hero .hero_img_wrapper{
-    width: 50%;
-    height: 100%;
-    background-color: #ddd  ;
-}
-.hero .hero_text_wrapper{
-    width: 50%;
-    height: 100%;
-    background-color: #ddd;
+@media (max-width: 768px) {
+    .hero_section {
+        flex-direction: column;
+        gap: .5em;
+    }
 }
 
-.hero_text_wrapper .shop_now_btn{
-    text-decoration: none;
-    color: #333;
+.hero_section .hero_img {
+    width: 40%;
+}
+
+@media (max-width:768px) {
+    .hero_section .hero_img {
+        width: 100%;
+    }
+}
+
+.hero_section .hero_img img {
+    width: 100%;
+    max-width: 700px;
+}
+
+.hero_section .hero_text {
+    width: 40%;
+    font-size: 1.1rem;
+    letter-spacing: .05rem;
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    .hero_section .hero_text {
+        width: 100%;
+    }
+}
+
+
+.hero_text .banner_title {
+    font-size: 3rem;
+    margin-bottom: .5em;
+
+}
+
+.banner_desc {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+@media (max-width:768px) {
+    .hero_text .banner_title {
+        font-size: 1.8rem;
+    }
+
+    .banner_desc {
+        display: none;
+    }
+}
+
+.hero_text .banner_btn {
+    width: 150px;
+    height: 45px;
+    text-decoration: none !important;
+    color: var(--white);
+    background-color: var(--red);
+    font-size: 1.2rem;
+    padding: .5em;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+@media (min-width:768px) {
+    .banner_btn {
+        float: left;
+    }
 }
 
 /* --------------------------------LANDING PAGE ENDS-------------------------------- */
