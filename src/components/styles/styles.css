@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100,0,300,0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100,0,300,0,400,0,500,0,600,0,700;1,300&display=swap');
 
 
 :root {
-    --white: rgb(255, 255, 255);
     --red: rgb(230, 46, 4);
     --light-red: rgb(255, 240, 235);
     --orange: rgb(255, 158, 39);
+
+    --light-gray: rgb(238, 238, 238);
+    --dark-gray: rgb(40, 40, 40) ;
+    --white: rgb(255, 255, 255);
     --border-radius: 5px;
     --main-transition: .3s;
 }
@@ -15,6 +18,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
 /* --------------------------------NAV BAR STARTS-------------------------------- */
 nav{
     width: 100%;
@@ -22,7 +29,6 @@ nav{
     margin: auto;
     padding: .2em .2em;
     background-color: var(--white);
-    border: 2px solid gray;
 
     position: fixed;
     top: 0;
@@ -42,7 +48,6 @@ nav{
 }
 
 .simplishop_logo{
-    border: 2px solid rebeccapurple;
     height: 100%;
     max-height: 30px;
 
@@ -67,8 +72,8 @@ nav{
     width: 80%;
     min-width: 150px;
     height: 40px;
-    border: 2px solid rebeccapurple;
-
+    border: 2px solid var(--dark-gray);
+    border-radius: var(--border-radius);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,6 +84,7 @@ nav{
     padding:  0 1em;
     font-size: 1rem;
     font-weight: 500;
+    border: none;
 }
 @media (max-width:768px) {
    .search_bar_wrapper input{
@@ -96,7 +102,8 @@ nav{
     align-items: center;
     width: 40px;
     height: 100%;
-    border: 2px solid rebeccapurple;
+    background-color: var(--dark-gray);
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -105,8 +112,6 @@ nav{
     justify-content: space-between;
     align-items: flex-end;
     gap: .5em;
-
-    border: 2px solid gray;
 }
 
 .cart_and_user_wrapper .cart_wrapper{
@@ -119,8 +124,8 @@ nav{
     top: -.8em;
     right: -.5em;
 
-    background-color: var(--red);
-    color: var(--white);
+    background-color: var(--dark-gray);
+    color: #eee;
     width: 20px;
     height: 20px;
     text-align: center;
@@ -133,7 +138,6 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid red;
 }
 .user_wrapper>.drop_down_parent{
     display: flex;
@@ -160,10 +164,9 @@ nav{
     font-weight: 500;
     max-height: 0px;
     min-width: 150px;
-    background-color: var(--white);
+    background-color: var(--dark-gray);
     overflow: hidden;
     list-style: none;
-    border: 2px solid magenta;
     transition: max-height var(--main-transition) linear;
 }
 .drop_down_parent:hover .drop_down_user{
@@ -171,13 +174,18 @@ nav{
 }
 
 .drop_down_user li{
-    padding: .5em;
+    padding: 1em .5em;
+    color: #ccc;
 }
 
 .drop_down_user li.register{
+    cursor: pointer;
+    transition: var(--main-transition);
+    border-top: 1px solid #666;
+}
+.drop_down_user li.register:hover{
     background-color: var(--red);
     color: var(--white);
-    cursor: pointer;
 }
 
 /* CART SIDE BAR */
@@ -185,8 +193,7 @@ nav{
     width: 0%;
     max-width: 90%;
     height: 99vh;
-    /* background-color: var(--light-red) ; */
-    background-color: #fff;
+    background-color: rgb(51, 51, 51) ;
     box-shadow: 0 0 10px .3px rgba(0, 0, 0, 0.5);
 
     position: fixed;
@@ -206,6 +213,7 @@ nav{
 
 .cart_side_bar_header_section {
     padding: 1em;
+    color: #ccc;
     border-bottom: thin solid #aaa;
 
     display: flex;
@@ -235,6 +243,7 @@ nav{
 
 .ssbci {
     height: 100px;
+    color: #ccc;
     padding: .5em 0;
     margin: 0 1em;
     border-bottom: thin solid #aaa;
@@ -247,8 +256,8 @@ nav{
 
 .ssbci_item_img_desc {
     height: 100%;
-    /* width: 50%; */
     margin-left: .5em;
+    color:#eee !important;
 
     display: flex;
     justify-content: flex-start;
@@ -322,6 +331,11 @@ nav{
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 1.05rem;
     font-weight: bold;
 }
@@ -343,20 +357,21 @@ nav{
 
 .cart_side_bar_bottom_element button {
     width: 100%;
+    max-width: 450px;
     height: 50px;
     border: none;
     font-weight: bold;
     color: var(--white);
-    border-radius: var(--border-radius);
-    background-color: var(--red);
-    margin: 0 0 .5em;
+    border: 1px solid #666;
+    background-color: inherit;
+    margin-bottom: .5em;
     cursor: pointer;
 
 }
 
 @media (max-width:768px) {
     .cart_side_bar_bottom_element button {
-        height: 30px;
+        height: 35px;
     }
 
     .cart_side_bar_bottom_element .subtotals {
@@ -407,6 +422,7 @@ nav{
 .hero_section .hero_text {
     width: 40%;
     font-size: 1.1rem;
+    color: #333;
     letter-spacing: .05rem;
     text-align: center;
 }
@@ -444,11 +460,10 @@ nav{
     height: 45px;
     text-decoration: none !important;
     color: var(--white);
-    background-color: var(--red);
+    background-color: rgb(40, 40, 40);
     font-size: 1.2rem;
     padding: .5em;
     border: none;
-    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
@@ -463,18 +478,17 @@ nav{
 
 /* --------------------------------PRODUCTS CATALOGUE STARTS-------------------------------- */
 .products_page{
-    border: 2px solid maroon;
-
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: .5em;
+    padding: 0 .2em;
 }
 .products_page .filter_container{
     width: 100%;
-    /* min-height: 400px; */
+    background-color: var(--dark-gray);
+    color: #eee;
     padding: 2em .5em 1em;
-    border: 2px solid red;
 }
 @media (max-width:768px) {
     .products_page {
@@ -490,11 +504,11 @@ nav{
         width: 50%;
         max-width: 300px;
         min-width: 200px;
-        height: calc(100vh - 130px);
+        height: calc(100vh - 60px);
         padding: 2em 1em 1em;
 
         position: sticky;
-        top: 120px;
+        top: 60px;
     }
 
     .products_page .filter_container{
@@ -515,7 +529,7 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1em;
+    gap: 2em;
 
     margin-left: .5em;
 }
@@ -531,16 +545,23 @@ nav{
 }
 
 .filter_form .clear_filter_btn{
-    width: 95%;
+    width: 100%;
     height: 40px;
-    margin: auto;
+    color: #eee;
+    border: none;
+    background-color: #666;
+    margin: 2em auto;
+    transition: var(--main-transition);
     cursor: pointer;
+}
+.filter_form .clear_filter_btn:hover{
+    border: 1px solid var(--light-gray);
+    background: inherit;
 }
 
 
 .products_page .products_section{
     width: 100%;
-    border: 2px solid magenta;
 }
 
 
@@ -554,7 +575,7 @@ nav{
 .catalogue_header h1 {
     font-size: 3rem;
     font-weight: 500;
-    color: var(--red);
+    color: #666;
 }
 @media (max-width:576px) {
     .catalogue_header h1 {
@@ -586,8 +607,8 @@ nav{
     overflow: hidden;
 
     width: 150%;
-    background-color: #fff;
-    box-shadow: 0 0 10px .2px rgba(0, 0, 0, 0.3);
+    background-color: var(--dark-gray);
+    color: #ddd;
     transition: max-height var(--main-transition) linear;
 }
 
@@ -597,7 +618,8 @@ nav{
 }
 
 .drop_down_category ul li:hover {
-    background-color: #ccc;
+    background-color: #eee;
+    color: #333;
 }
 
 .drop_down_category:hover ul {
@@ -607,8 +629,6 @@ nav{
 
 .products_section .products_catalogue{
     min-height: 80vh;
-    border: 2px solid green;
-
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
    grid-column-gap: 1.5rem;
@@ -629,7 +649,7 @@ nav{
     border-radius: 5px;
     height: 0%;
     width: 100%;
-    background-color: rgba(250, 46, 4, 0.5);
+    background-color: rgba(238, 238, 238, 0.7);
 
     display: flex;
     flex-direction: column;
@@ -647,7 +667,9 @@ nav{
     font-size: 1rem;
     text-align: center;
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--dark-gray);
+    color: #eee;
+    text-decoration: none;
     padding: 1em 2em;
     cursor: pointer;
 }
@@ -683,7 +705,7 @@ nav{
 
 .nrp {
     height: calc(40% - .5em);
-    background-color: var(--light-red);
+    background-color: rgb(238, 238, 238);
     color: #222;
 
     display: flex;
@@ -836,9 +858,6 @@ nav{
     justify-content: center;
     align-items: center;
 }
-.product_image_container .small_image_wrapper{
-    /* border: 2px solid green; */
-}
 @media (min-width: 992px){
     .product_image_container {
         display: flex;
@@ -977,8 +996,8 @@ nav{
 footer {
     font-size: 1rem;
     text-align: center;
-    padding: .5em;
-    color: var(--white);
-    background: var(--red);
+    padding: 1.5em .5em;
+    color: #aaa;
+    background: var(--dark-gray);
 }
 /* --------------------------------FOOTER ENDS-------------------------------- */

@@ -88,7 +88,7 @@ function Filter() {
                     <AiOutlineStar style={{ cursor: "pointer" }} />
                     <AiOutlineStar style={{ cursor: "pointer" }} />
                     <AiOutlineStar style={{ cursor: "pointer" }} /> */}
-                    <input type='number' min={0} max={5} value={ratings} onChange={handleRatings} style={{ textAlign: "center" }} />
+                    <input type='number' min={0} max={5} value={ratings} onChange={handleRatings} style={{ textAlign: "center", height: "30px" }} />
                     <span style={{ marginLeft: ".5em" }}>& up</span>
                     
                 </p>

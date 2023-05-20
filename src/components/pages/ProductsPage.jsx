@@ -5,6 +5,7 @@ import Filter from './Filter'
 import { AiFillCaretDown } from "react-icons/ai"
 import ProductsCard from './ProductsCard'
 import { useDispatch, useSelector } from 'react-redux'
+import LandingPage from './LandingPage'
 
 function ProductsPage() {
 
@@ -108,8 +109,8 @@ function ProductsPage() {
 
 
     return (
-        <div style={{ marginTop: "60px" }} className='products_page'>
 
+        <div style={{ marginTop: "60px" }} className='products_page'>
             <Filter />
 
             <div className='products_section'>

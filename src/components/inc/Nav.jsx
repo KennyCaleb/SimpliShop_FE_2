@@ -87,7 +87,7 @@ function Nav() {
       {/* cart side bar */}
       <div className="cart_side_bar" style={{ width: width }}>
         <div className="cart_side_bar_header_section">
-          <span style={{ fontSize: "1.05rem", fontWeight: "500", color: "#333" }}>
+          <span style={{ fontSize: "1.05rem", fontWeight: "500"}}>
             Shopping Cart
           </span>
 
@@ -114,8 +114,7 @@ function Nav() {
             <span>Subtotal</span>
             <span>£{cart.reduce((subTotal, prod) => subTotal + (prod.price * prod.qty), 0)}</span>
           </div>
-
-          <button>VIEW CART</button>
+          
           <button>CHECKOUT</button>
         </div>
       </div>
