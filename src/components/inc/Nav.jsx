@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import fullogo from "../images/logo.png"
@@ -21,6 +21,8 @@ function Nav() {
   const [searchQuery, setSearchQuery] = useState("")
   const [width, setWidth] = useState("0%")
 
+  const navigate = useNavigate()
+
   function handleSearch(e) {
     const query = e.target.value
     dispatch({ type: "UPDATE_FILTERS", payload: { searchQuery: query } })
@@ -39,10 +41,18 @@ function Nav() {
     dispatch({ type: "UPDATE_USER_TYPE", payload: "unregistered" })
 
     // display signup modal
-    dispatch({ type: "UPDATE_REG_MODAL_STATE", payload: true })
+    dispatch({ type: "UPDATE_REG_MODAL_STATE", payload: false })
 
     // update store
     dispatch({ type: "UPDATE_CART" , payload:[]})
+
+    //redirect to home page
+    navigate("/")
+  }
+
+  const handleCheckoutBtn=()=>{
+    setWidth("0%")
+    navigate("/checkout")
   }
 
   return (
@@ -114,8 +124,8 @@ function Nav() {
             <span>Subtotal</span>
             <span>£{cart.reduce((subTotal, prod) => subTotal + (prod.price * prod.qty), 0)}</span>
           </div>
-          
-          <button>CHECKOUT</button>
+
+          <button onClick={handleCheckoutBtn}>CHECKOUT</button>
         </div>
       </div>
 

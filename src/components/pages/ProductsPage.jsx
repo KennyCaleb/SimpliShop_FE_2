@@ -138,7 +138,7 @@ function ProductsPage() {
                     {
                         auxProductData.map((product, index) => {
                             return (
-                                <div key={index}>
+                                <div className="single_product" key={index}>
                                     <ProductsCard product={product} />
                                 </div>
                             )

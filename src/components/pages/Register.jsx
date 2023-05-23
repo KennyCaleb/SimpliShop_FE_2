@@ -69,7 +69,7 @@ function Register() {
         //display none modal after 1sec
         setTimeout(()=>{
             dispatch({ type: "UPDATE_REG_MODAL_STATE", payload:false })
-        }, 1000)
+        }, 500)
 
     }
 

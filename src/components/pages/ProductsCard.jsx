@@ -76,7 +76,7 @@ function ProductsCard({product}) {
     }
     
     return (
-        <div className="single_product">
+        <>
             <div className="over_lay">
                 <Link to={`/products/${product._id}`} className="view">View</Link>
                 <button className="to_cart" onClick={handleAddTocart}>{addToCartTxt}</button>
@@ -92,7 +92,7 @@ function ProductsCard({product}) {
 
                 <p className="product_price">£{price}</p>
             </div>
-        </div>
+        </>
     )
 }
 

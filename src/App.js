@@ -13,8 +13,9 @@ import {Provider} from "react-redux"
 import Footer from './components/inc/Footer';
 import axios from 'axios';
 import SingleProductPage from './components/pages/SingleProductPage';
-import Cart from './components/pages/Cart';
+import CheckOut from './components/pages/CheckOut';
 import SignForms from './components/pages/SignForms';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="products/:id" element={<SingleProductPage />} />
-            <Route path="cart" element={<Cart/>} />
+            <Route path="checkout" element={ <ProtectedRoute><CheckOut/></ProtectedRoute>} />
           </Routes>
           <Footer />
         </div>
